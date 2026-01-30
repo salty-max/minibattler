@@ -1,0 +1,147 @@
+[gd_scene format=3 uid="uid://1l1m2o4ur8xd"]
+
+[ext_resource type="Script" uid="uid://d3iddcegilji3" path="res://scenes/unit.gd" id="1_k673f"]
+[ext_resource type="Texture2D" uid="uid://bt3rl8kwulbv" path="res://assets/art/creatures.png" id="1_o7ajc"]
+[ext_resource type="Material" uid="uid://byu2uxhtuamnx" path="res://shaders/2d_outline_shader.tres" id="3_ruro2"]
+[ext_resource type="Script" uid="uid://j7crpab48mrx" path="res://components/drag_and_drop.gd" id="4_gic7v"]
+[ext_resource type="Script" uid="uid://b8cw8ofovy2m" path="res://components/velocity_based_rotation.gd" id="5_tb304"]
+[ext_resource type="Script" uid="uid://jlh4grxuao7v" path="res://components/outline_highlighter.gd" id="7_e8hdl"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1jvru"]
+resource_local_to_scene = true
+atlas = ExtResource("1_o7ajc")
+region = Rect2(288, 0, 24, 48)
+
+[sub_resource type="Animation" id="Animation_gic7v"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("%Skin:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_tb304"]
+resource_name = "idle"
+length = 0.4
+loop_mode = 1
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("%Skin:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [0, 1]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ruro2"]
+_data = {
+&"RESET": SubResource("Animation_gic7v"),
+&"idle": SubResource("Animation_tb304")
+}
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_o7ajc"]
+size = Vector2(28, 28)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_o7ajc"]
+bg_color = Color(0.23137255, 0.11372549, 0.09803922, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_k673f"]
+bg_color = Color(0, 0.73333335, 0.3137255, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.23137255, 0.11372549, 0.09803922, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1jvru"]
+bg_color = Color(0.23137255, 0.11372549, 0.09803922, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gic7v"]
+bg_color = Color(0, 0.654902, 0.9372549, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.23137255, 0.11372549, 0.09803922, 1)
+
+[node name="Unit" type="Area2D" unique_id=2054019544]
+script = ExtResource("1_k673f")
+metadata/_edit_group_ = true
+
+[node name="Visuals" type="CanvasGroup" parent="." unique_id=1484686239]
+material = ExtResource("3_ruro2")
+
+[node name="Skin" type="Sprite2D" parent="Visuals" unique_id=1283538016]
+unique_name_in_owner = true
+position = Vector2(12, 6)
+texture = SubResource("AtlasTexture_1jvru")
+vframes = 2
+region_rect = Rect2(0, 0, 24, 48)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=884943811]
+root_node = NodePath("../Visuals")
+libraries/ = SubResource("AnimationLibrary_ruro2")
+autoplay = &"idle"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1039203287]
+position = Vector2(12, 6)
+shape = SubResource("RectangleShape2D_o7ajc")
+
+[node name="HealthBar" type="ProgressBar" parent="." unique_id=290451642]
+unique_name_in_owner = true
+offset_left = 1.0
+offset_top = -18.0
+offset_right = 23.0
+offset_bottom = -12.0
+theme_override_styles/background = SubResource("StyleBoxFlat_o7ajc")
+theme_override_styles/fill = SubResource("StyleBoxFlat_k673f")
+value = 70.0
+show_percentage = false
+
+[node name="ManaBar" type="ProgressBar" parent="." unique_id=988467598]
+unique_name_in_owner = true
+offset_left = 1.0
+offset_top = -13.0
+offset_right = 23.0
+offset_bottom = -9.0
+theme_override_styles/background = SubResource("StyleBoxFlat_1jvru")
+theme_override_styles/fill = SubResource("StyleBoxFlat_gic7v")
+value = 30.0
+show_percentage = false
+
+[node name="DragAndDrop" type="Node" parent="." unique_id=1370180353 node_paths=PackedStringArray("target")]
+unique_name_in_owner = true
+script = ExtResource("4_gic7v")
+target = NodePath("..")
+metadata/_custom_type_script = "uid://j7crpab48mrx"
+
+[node name="VelocityBasedRotation" type="Node" parent="." unique_id=2003655601 node_paths=PackedStringArray("target")]
+unique_name_in_owner = true
+script = ExtResource("5_tb304")
+target = NodePath("../Visuals/Skin")
+lerp_duration = 0.3
+max_rotation_degrees = 30
+metadata/_custom_type_script = "uid://b8cw8ofovy2m"
+
+[node name="OutlineHighlighter" type="Node" parent="." unique_id=2077041112 node_paths=PackedStringArray("visuals")]
+unique_name_in_owner = true
+script = ExtResource("7_e8hdl")
+visuals = NodePath("../Visuals")
+outline_color = Color(0.9372549, 0.9372549, 0.9372549, 1)
+outline_thickness = 1
+metadata/_custom_type_script = "uid://jlh4grxuao7v"
+
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]

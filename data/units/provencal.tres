@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="UnitStats" format=3 uid="uid://cdk2flaj5k7qi"]
+
+[ext_resource type="Script" uid="uid://cgex6sevmfn62" path="res://data/units/unit_stats.gd" id="1_wyybn"]
+
+[resource]
+resource_local_to_scene = true
+script = ExtResource("1_wyybn")
+name = "Provencal"
+metadata/_custom_type_script = "uid://cgex6sevmfn62"
