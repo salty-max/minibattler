@@ -7,7 +7,7 @@ extends Node
 
 
 func _ready() -> void:
-	visuals.material.set_shader_parameter("line_color", outline_color)
+	visuals.material.set_shader_parameter("line_colour", outline_color)
 	
 	
 func clear_highlight() -> void:

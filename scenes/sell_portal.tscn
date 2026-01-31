@@ -1,0 +1,75 @@
+[gd_scene format=3 uid="uid://r5qis551xftp"]
+
+[ext_resource type="Script" uid="uid://dkl35ytrne5ka" path="res://scenes/sell_portal.gd" id="1_18rn6"]
+[ext_resource type="Material" uid="uid://byu2uxhtuamnx" path="res://shaders/2d_outline_shader.tres" id="1_y4nst"]
+[ext_resource type="Texture2D" uid="uid://cgtf6rmkli2s5" path="res://assets/art/world.png" id="2_xtffr"]
+[ext_resource type="Script" uid="uid://jlh4grxuao7v" path="res://components/outline_highlighter.gd" id="3_18rn6"]
+[ext_resource type="Texture2D" uid="uid://s6yyswsh77qg" path="res://assets/art/items.png" id="4_xtffr"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_fta7e"]
+radius = 18.0
+
+[sub_resource type="LabelSettings" id="LabelSettings_xtffr"]
+shadow_size = 2
+shadow_color = Color(0, 0, 0, 0.5019608)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_18rn6"]
+atlas = ExtResource("4_xtffr")
+region = Rect2(144, 64, 16, 16)
+
+[node name="SellPortal" type="Area2D" unique_id=1443169066]
+script = ExtResource("1_18rn6")
+
+[node name="Visuals" type="CanvasGroup" parent="." unique_id=1890656038]
+material = ExtResource("1_y4nst")
+
+[node name="Sprite2D" type="Sprite2D" parent="Visuals" unique_id=1624715959]
+position = Vector2(12, 12)
+texture = ExtResource("2_xtffr")
+region_enabled = true
+region_rect = Rect2(816, 168, 24, 24)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=548747697]
+position = Vector2(12, 12)
+shape = SubResource("CircleShape2D_fta7e")
+
+[node name="OutlineHighlighter" type="Node" parent="." unique_id=1528120246 node_paths=PackedStringArray("visuals")]
+script = ExtResource("3_18rn6")
+visuals = NodePath("../Visuals")
+outline_color = Color(0.5568628, 0.9137255, 0.74509805, 1)
+outline_thickness = 2
+metadata/_custom_type_script = "uid://jlh4grxuao7v"
+
+[node name="Label" type="Label" parent="." unique_id=133137277]
+offset_top = 28.0
+offset_right = 21.0
+offset_bottom = 46.0
+text = "Sell"
+label_settings = SubResource("LabelSettings_xtffr")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="GoldContainer" type="HBoxContainer" parent="." unique_id=1885049596]
+unique_name_in_owner = true
+visible = false
+offset_left = -8.0
+offset_top = 44.0
+offset_right = 32.0
+offset_bottom = 62.0
+alignment = 1
+
+[node name="GoldLabel" type="Label" parent="GoldContainer" unique_id=1155051960]
+unique_name_in_owner = true
+layout_mode = 2
+text = "99"
+label_settings = SubResource("LabelSettings_xtffr")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="GoldIcon" type="TextureRect" parent="GoldContainer" unique_id=1080414294]
+layout_mode = 2
+texture = SubResource("AtlasTexture_18rn6")
+stretch_mode = 2
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[connection signal="area_exited" from="." to="." method="_on_area_exited"]

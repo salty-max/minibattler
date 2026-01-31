@@ -12,6 +12,8 @@
 [ext_resource type="Script" uid="uid://cgex6sevmfn62" path="res://data/units/unit_stats.gd" id="8_naajo"]
 [ext_resource type="Script" uid="uid://b62vow1v8t48b" path="res://components/unit_mover.gd" id="11_k1k1x"]
 [ext_resource type="Script" uid="uid://rjonyx3x2t6o" path="res://components/unit_spawner.gd" id="12_ajq0i"]
+[ext_resource type="PackedScene" uid="uid://r5qis551xftp" path="res://scenes/sell_portal.tscn" id="13_xsx6r"]
+[ext_resource type="Resource" uid="uid://m3dy761r1ky2" path="res://data/player_stats.tres" id="14_ixwup"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_xdvfk"]
 texture = ExtResource("1_wl4x5")
@@ -53,10 +55,6 @@ texture_region_size = Vector2i(24, 24)
 36:1/0 = 0
 37:1/0 = 0
 38:1/0 = 0
-39:1/0 = 0
-40:1/0 = 0
-41:1/0 = 0
-42:1/0 = 0
 44:1/0 = 0
 45:1/0 = 0
 46:1/0 = 0
@@ -108,8 +106,6 @@ texture_region_size = Vector2i(24, 24)
 38:2/0 = 0
 39:2/0 = 0
 40:2/0 = 0
-41:2/0 = 0
-42:2/0 = 0
 44:2/0 = 0
 45:2/0 = 0
 46:2/0 = 0
@@ -1536,16 +1532,12 @@ texture_region_size = Vector2i(24, 24)
 2:32/0 = 0
 3:32/0 = 0
 4:32/0 = 0
-5:32/0 = 0
 6:32/0 = 0
 7:32/0 = 0
-8:32/0 = 0
 9:32/0 = 0
 10:32/0 = 0
-11:32/0 = 0
 12:32/0 = 0
 13:32/0 = 0
-14:32/0 = 0
 15:32/0 = 0
 16:32/0 = 0
 17:32/0 = 0
@@ -1820,6 +1812,21 @@ texture_region_size = Vector2i(24, 24)
 53:40/0 = 0
 54:40/0 = 0
 55:40/0 = 0
+39:1/animation_columns = 2
+39:1/animation_speed = 2.0
+39:1/animation_frame_0/duration = 1.0
+39:1/animation_frame_1/duration = 1.0
+39:1/0 = 0
+41:1/animation_columns = 2
+41:1/animation_speed = 2.0
+41:1/animation_frame_0/duration = 1.0
+41:1/animation_frame_1/duration = 1.0
+41:1/0 = 0
+41:2/animation_columns = 2
+41:2/animation_speed = 2.0
+41:2/animation_frame_0/duration = 1.0
+41:2/animation_frame_1/duration = 1.0
+41:2/0 = 0
 
 [sub_resource type="TileSet" id="TileSet_7ft05"]
 tile_size = Vector2i(24, 24)
@@ -1847,18 +1854,18 @@ scale_max = 0.19999999
 scale_curve = SubResource("CurveTexture_dpxgc")
 color = Color(1, 1, 1, 0.49411765)
 
-[sub_resource type="Resource" id="Resource_k1k1x"]
+[sub_resource type="Resource" id="Resource_xsx6r"]
 resource_local_to_scene = true
 script = ExtResource("8_naajo")
 metadata/_custom_type_script = "uid://cgex6sevmfn62"
 
-[sub_resource type="Resource" id="Resource_ajq0i"]
+[sub_resource type="Resource" id="Resource_ixwup"]
 resource_local_to_scene = true
 script = ExtResource("8_naajo")
 skin_coordinates = Vector2i(2, 6)
 metadata/_custom_type_script = "uid://cgex6sevmfn62"
 
-[sub_resource type="Resource" id="Resource_8vbsj"]
+[sub_resource type="Resource" id="Resource_a43o1"]
 resource_local_to_scene = true
 script = ExtResource("8_naajo")
 rarity = 2
@@ -1878,6 +1885,7 @@ tile_map_data = PackedByteArray("AAAAAAAAAAAdAA4AAAAAAAEAAAAdAA4AAAAAAAIAAAAdAA4
 tile_set = SubResource("TileSet_7ft05")
 
 [node name="Props" type="TileMapLayer" parent="Visuals" unique_id=95104325]
+tile_map_data = PackedByteArray("AAAEAAoAAAApAAIAAAAEAAAAAAApAAIAAAAWAAAAAAApAAIAAAAWAAoAAAApAAIAAAAHAA0AAAApAAIAAAATAA0AAAApAAIAAAA=")
 tile_set = SubResource("TileSet_7ft05")
 
 [node name="Walls" type="TileMapLayer" parent="Visuals" unique_id=2015688299]
@@ -1935,14 +1943,14 @@ tile_set = ExtResource("4_7ft05")
 
 [node name="Unit" parent="BenchArea" unique_id=2054019544 instance=ExtResource("6_4ag8t")]
 position = Vector2(72, 0)
-stats = SubResource("Resource_k1k1x")
+stats = SubResource("Resource_xsx6r")
 
 [node name="Unit2" parent="BenchArea" unique_id=462426789 instance=ExtResource("6_4ag8t")]
 position = Vector2(144, 0)
-stats = SubResource("Resource_ajq0i")
+stats = SubResource("Resource_ixwup")
 
 [node name="Unit3" parent="BenchArea" unique_id=2065800695 instance=ExtResource("6_4ag8t")]
-stats = SubResource("Resource_8vbsj")
+stats = SubResource("Resource_a43o1")
 
 [node name="BenchUnitGrid" type="Node2D" parent="BenchArea" unique_id=972556216]
 script = ExtResource("6_oexds")
@@ -1966,3 +1974,7 @@ script = ExtResource("12_ajq0i")
 bench = NodePath("../BenchArea")
 game_area = NodePath("../GameArea")
 metadata/_custom_type_script = "uid://rjonyx3x2t6o"
+
+[node name="SellPortal" parent="." unique_id=1443169066 instance=ExtResource("13_xsx6r")]
+position = Vector2(120, 288)
+player_stats = ExtResource("14_ixwup")
