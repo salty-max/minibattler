@@ -24,6 +24,18 @@ window/size/window_height_override=1080
 window/stretch/mode="viewport"
 window/stretch/scale_mode="integer"
 
+[file_customization]
+
+folder_colors={
+"res://assets/": "red",
+"res://components/": "green",
+"res://data/": "orange",
+"res://globals/": "purple",
+"res://resources/": "yellow",
+"res://scenes/": "blue",
+"res://shaders/": "pink"
+}
+
 [input]
 
 select={
