@@ -1846,18 +1846,18 @@ scale_max = 0.19999999
 scale_curve = SubResource("CurveTexture_dpxgc")
 color = Color(1, 1, 1, 0.49411765)
 
-[sub_resource type="Resource" id="Resource_naajo"]
+[sub_resource type="Resource" id="Resource_k1k1x"]
 resource_local_to_scene = true
 script = ExtResource("8_naajo")
 metadata/_custom_type_script = "uid://cgex6sevmfn62"
 
-[sub_resource type="Resource" id="Resource_41jku"]
+[sub_resource type="Resource" id="Resource_ajq0i"]
 resource_local_to_scene = true
 script = ExtResource("8_naajo")
 skin_coordinates = Vector2i(2, 6)
 metadata/_custom_type_script = "uid://cgex6sevmfn62"
 
-[sub_resource type="Resource" id="Resource_k1k1x"]
+[sub_resource type="Resource" id="Resource_8vbsj"]
 resource_local_to_scene = true
 script = ExtResource("8_naajo")
 rarity = 2
@@ -1891,12 +1891,13 @@ texture = ExtResource("3_xdvfk")
 lifetime = 6.0
 process_material = SubResource("ParticleProcessMaterial_oexds")
 
-[node name="GameArea" type="TileMapLayer" parent="." unique_id=1355515684 node_paths=PackedStringArray("unit_grid")]
+[node name="GameArea" type="TileMapLayer" parent="." unique_id=1355515684 node_paths=PackedStringArray("unit_grid", "tile_highlighter")]
 position = Vector2(144, 24)
 tile_map_data = PackedByteArray("AAAAAAAAAAAEAA8AAAAAAAIAAAAFAA8AAAAAAAQAAAAGAA8AAAAAAAUAAAAFAA8AAAAAAAYAAAAHAA8AAAAAAAcAAAAEAA8AAAAAAAgAAAAGAA8AAAABAAAAAAAFAA8AAAABAAMAAAAGAA8AAAABAAUAAAAFAA8AAAABAAYAAAAFAA8AAAABAAcAAAAFAA8AAAABAAgAAAAFAA8AAAACAAAAAAAEAA8AAAACAAEAAAAHAA8AAAACAAMAAAAEAA8AAAACAAQAAAAFAA8AAAACAAUAAAAFAA8AAAACAAYAAAAEAA8AAAACAAcAAAAGAA8AAAACAAgAAAAHAA8AAAADAAAAAAAFAA8AAAADAAEAAAAGAA8AAAADAAMAAAAFAA8AAAADAAQAAAAEAA8AAAADAAUAAAAHAA8AAAADAAYAAAAEAA8AAAADAAcAAAAHAA8AAAADAAgAAAAGAA8AAAAEAAAAAAAEAA8AAAAEAAEAAAAFAA8AAAAEAAIAAAAHAA8AAAAEAAQAAAAGAA8AAAAEAAUAAAAFAA8AAAAEAAYAAAAFAA8AAAAEAAcAAAAFAA8AAAAEAAgAAAAFAA8AAAAFAAAAAAAHAA8AAAAFAAEAAAAGAA8AAAAFAAIAAAAEAA8AAAAFAAQAAAAGAA8AAAAFAAUAAAAEAA8AAAAFAAYAAAAFAA8AAAAFAAcAAAAGAA8AAAAFAAgAAAAFAA8AAAAGAAAAAAAHAA8AAAAGAAEAAAAHAA8AAAAGAAIAAAAEAA8AAAAGAAMAAAAEAA8AAAAGAAUAAAAGAA8AAAAGAAYAAAAEAA8AAAAGAAcAAAAFAA8AAAAGAAgAAAAGAA8AAAAHAAAAAAAHAA8AAAAHAAEAAAAHAA8AAAAHAAIAAAAEAA8AAAAHAAMAAAAEAA8AAAAHAAUAAAAHAA8AAAAHAAYAAAAEAA8AAAAHAAcAAAAEAA8AAAAHAAgAAAAHAA8AAAAIAAAAAAAEAA8AAAAIAAEAAAAFAA8AAAAIAAIAAAAFAA8AAAAIAAMAAAAHAA8AAAAIAAQAAAAGAA8AAAAIAAYAAAAHAA8AAAAIAAcAAAAGAA8AAAAIAAgAAAAEAA8AAAAJAAAAAAAHAA8AAAAJAAEAAAAFAA8AAAAJAAIAAAAHAA8AAAAJAAMAAAAFAA8AAAAJAAQAAAAFAA8AAAAJAAcAAAAEAA8AAAAJAAgAAAAGAA8AAAAKAAAAAAAGAA8AAAAKAAEAAAAEAA8AAAAKAAIAAAAHAA8AAAAKAAMAAAAGAA8AAAAKAAQAAAAGAA8AAAAKAAUAAAAFAA8AAAAKAAcAAAAGAA8AAAAKAAgAAAAEAA8AAAALAAAAAAAFAA8AAAALAAEAAAAEAA8AAAALAAIAAAAEAA8AAAALAAMAAAAGAA8AAAALAAQAAAAHAA8AAAALAAUAAAAHAA8AAAALAAgAAAAFAA8AAAAMAAAAAAAEAA8AAAAMAAEAAAAFAA8AAAAMAAIAAAAHAA8AAAAMAAMAAAAFAA8AAAAMAAQAAAAFAA8AAAAMAAUAAAAFAA8AAAAMAAYAAAAGAA8AAAAMAAgAAAAGAA8AAAANAAAAAAAGAA8AAAANAAEAAAAGAA8AAAANAAIAAAAHAA8AAAANAAMAAAAHAA8AAAANAAQAAAAGAA8AAAANAAUAAAAFAA8AAAANAAYAAAAFAA8AAAAOAAAAAAAFAA8AAAAOAAEAAAAHAA8AAAAOAAIAAAAFAA8AAAAOAAMAAAAEAA8AAAAOAAQAAAAGAA8AAAAOAAUAAAAEAA8AAAAOAAYAAAAFAA8AAAAOAAcAAAAGAA8AAAAOAAgAAAAGAA8AAAAAAAEAAAAEAA8AAAABAAEAAAAHAA8AAAABAAIAAAAEAA8AAAACAAIAAAAHAA8AAAADAAIAAAAFAA8AAAAEAAMAAAAHAA8AAAAFAAMAAAAHAA8AAAAGAAQAAAAGAA8AAAAHAAQAAAAGAA8AAAAIAAUAAAAGAA8AAAAJAAUAAAAGAA8AAAAJAAYAAAAFAA8AAAAKAAYAAAAHAA8AAAALAAYAAAAEAA8AAAALAAcAAAAFAA8AAAAMAAcAAAAGAA8AAAANAAcAAAAFAA8AAAANAAgAAAAGAA8AAAAAAAMAAAAGAA8AAAABAAQAAAAHAA8AAAA=")
 tile_set = ExtResource("2_olpmc")
 script = ExtResource("5_naajo")
 unit_grid = NodePath("ArenaUnitGrid")
+tile_highlighter = NodePath("TileHighlighter")
 metadata/_edit_lock_ = true
 metadata/_edit_group_ = true
 
@@ -1916,14 +1917,16 @@ metadata/_custom_type_script = "uid://cnj2cbc1ml1nj"
 script = ExtResource("8_41jku")
 play_area = NodePath("..")
 highlight_layer = NodePath("../Highlight")
+enabled = false
 metadata/_custom_type_script = "uid://dut3asd01fb57"
 
-[node name="BenchArea" type="TileMapLayer" parent="." unique_id=1750999492 node_paths=PackedStringArray("unit_grid")]
+[node name="BenchArea" type="TileMapLayer" parent="." unique_id=1750999492 node_paths=PackedStringArray("unit_grid", "tile_highlighter")]
 position = Vector2(144, 312)
 tile_map_data = PackedByteArray("AAAAAAAAAAAEAA8AAAABAAAAAAAFAA8AAAACAAAAAAAEAA8AAAADAAAAAAAFAA8AAAAEAAAAAAAEAA8AAAAFAAAAAAAHAA8AAAAGAAAAAAAHAA8AAAAHAAAAAAAHAA8AAAAIAAAAAAAEAA8AAAAJAAAAAAAHAA8AAAAKAAAAAAAGAA8AAAALAAAAAAAFAA8AAAAMAAAAAAAEAA8AAAANAAAAAAAGAA8AAAAOAAAAAAAFAA8AAAA=")
 tile_set = ExtResource("2_olpmc")
 script = ExtResource("5_naajo")
 unit_grid = NodePath("BenchUnitGrid")
+tile_highlighter = NodePath("TileHighlighter")
 metadata/_edit_lock_ = true
 metadata/_edit_group_ = true
 
@@ -1932,14 +1935,14 @@ tile_set = ExtResource("4_7ft05")
 
 [node name="Unit" parent="BenchArea" unique_id=2054019544 instance=ExtResource("6_4ag8t")]
 position = Vector2(72, 0)
-stats = SubResource("Resource_naajo")
+stats = SubResource("Resource_k1k1x")
 
 [node name="Unit2" parent="BenchArea" unique_id=462426789 instance=ExtResource("6_4ag8t")]
 position = Vector2(144, 0)
-stats = SubResource("Resource_41jku")
+stats = SubResource("Resource_ajq0i")
 
 [node name="Unit3" parent="BenchArea" unique_id=2065800695 instance=ExtResource("6_4ag8t")]
-stats = SubResource("Resource_k1k1x")
+stats = SubResource("Resource_8vbsj")
 
 [node name="BenchUnitGrid" type="Node2D" parent="BenchArea" unique_id=972556216]
 script = ExtResource("6_oexds")
@@ -1950,6 +1953,7 @@ metadata/_custom_type_script = "uid://cnj2cbc1ml1nj"
 script = ExtResource("8_41jku")
 play_area = NodePath("..")
 highlight_layer = NodePath("../Highlight")
+enabled = false
 metadata/_custom_type_script = "uid://dut3asd01fb57"
 
 [node name="UnitMover" type="Node" parent="." unique_id=624305382 node_paths=PackedStringArray("play_areas")]

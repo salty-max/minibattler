@@ -44,7 +44,7 @@ func _on_drag_canceled(start_pos: Vector2) -> void:
 	reset_after_drag(start_pos)
 	
 	
-func _on_dropped(start_pos: Vector2) -> void:
+func _on_dropped(_start_pos: Vector2) -> void:
 	velocity_based_rotation.enabled = false
 	
 	
